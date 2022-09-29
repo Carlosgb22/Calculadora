@@ -23,52 +23,102 @@ public class MainActivity extends AppCompatActivity {
         tv1=findViewById(R.id.textView);
     }
 
+    /**
+     * Metodo que realiza la suma de los dos numeros
+     * @param view
+     */
     public void sumar(View view) {
+        int n1 = 0;
+        int n2 = 0;
+        //Usamos un bloque try/catch para controlar las excepciones
+        try {
+            // Obtenemos los números
+            n1=Integer.parseInt(et1.getText().toString());
+            n2=Integer.parseInt(et2.getText().toString());
 
-        // Obtenemos los números
-        int n1=Integer.parseInt(et1.getText().toString());
-        int n2=Integer.parseInt(et2.getText().toString());
+            // Hacemos la suma
+            int suma=n1+n2;
 
-        // Hacemos la suma
-        int suma=n1+n2;
+            // Establecemos el resultado en el TextView
+            tv1.setText("El resultado es: " + suma);
 
-        // Establecemos el resultado en el TextView
-        tv1.setText(""+suma);
+        }catch(NullPointerException | NumberFormatException e){
+            tv1.setText("Introduce 2 numeros");
+        }
     }
+
+    /**
+     * Metodo que realiza la resta de los dos numeros
+     * @param view
+     */
     public void restar(View view) {
 
-        // Obtenemos los números
-        int n1=Integer.parseInt(et1.getText().toString());
-        int n2=Integer.parseInt(et2.getText().toString());
+        int n1 = 0;
+        int n2 = 0;
+        //Usamos un bloque try/catch para controlar las excepciones
+        try {
+            // Obtenemos los números
+            n1=Integer.parseInt(et1.getText().toString());
+            n2=Integer.parseInt(et2.getText().toString());
+            // Hacemos la resta
+            int resta=n1-n2;
 
-        // Hacemos la resta
-        int resta=n1-n2;
+            // Establecemos el resultado en el TextView
+            tv1.setText("El resultado es: " + resta);
 
-        // Establecemos el resultado en el TextView
-        tv1.setText(""+resta);
+        }catch(NullPointerException | NumberFormatException e){
+            tv1.setText("Introduce 2 numeros");
+        }
     }
+
+    /**
+     * Metodo que realiza la multiplicacion de los dos numeros
+     * @param view
+     */
     public void multiplicar(View view) {
 
-        // Obtenemos los números
-        int n1=Integer.parseInt(et1.getText().toString());
-        int n2=Integer.parseInt(et2.getText().toString());
+        int n1 = 0;
+        int n2 = 0;
+        //Usamos un bloque try/catch para controlar las excepciones
+        try {
+            // Obtenemos los números
+            n1=Integer.parseInt(et1.getText().toString());
+            n2=Integer.parseInt(et2.getText().toString());
+            // Hacemos la multiplicacion
+            int producto=n1*n2;
 
-        // Hacemos la multiplicacion
-        int producto=n1*n2;
+            // Establecemos el resultado en el TextView
+            tv1.setText("El resultado es: " + producto);
 
-        // Establecemos el resultado en el TextView
-        tv1.setText(""+producto);
+        }catch(NullPointerException | NumberFormatException e) {
+            tv1.setText("Introduce 2 numeros");
+        }
     }
+
+    /**
+     * Metodo que realiza la division de los dos numeros
+     * @param view
+     */
     public void dividir(View view) {
 
-        // Obtenemos los números
-        double n1=Double.parseDouble(et1.getText().toString());
-        double n2=Double.parseDouble(et2.getText().toString());
+        double n1 = 0;
+        double n2 = 0;
+        //Usamos un bloque try/catch para controlar las excepciones
+        try {
+            // Obtenemos los números
+            n1=Integer.parseInt(et1.getText().toString());
+            n2=Integer.parseInt(et2.getText().toString());
+            if (n2 == 0){
+                tv1.setText("No se puede dividir entre 0");
+            }else {
+                // Hacemos la division
+                double cociente = n1 / n2;
 
-        // Hacemos la suma
-        double cociente=n1/n2;
-
-        // Establecemos el resultado en el TextView
-        tv1.setText(""+cociente);
+                // Establecemos el resultado en el TextView
+                tv1.setText("El resultado es: " + String.format("%.2f", cociente));
+            }
+        }catch(NullPointerException | NumberFormatException e){
+            tv1.setText("Introduce 2 numeros");
+        }
     }
 }
